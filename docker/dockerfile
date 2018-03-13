@@ -1,0 +1,23 @@
+FROM ubuntu
+
+ENV ROOT=/home/Projects
+
+# Set the working directory 
+WORKDIR $ROOT
+
+RUN apt-get update 
+RUN apt-get install -y g++ cmake  git 
+RUN apt-get install -y \
+    libsoil-dev \
+    libglm-dev \
+    libassimp-dev \
+    libglew-dev \
+    libglfw3-dev \
+    libxinerama-dev \
+    libxcursor-dev \
+    libxi-dev 
+RUN apt-get install -y mesa-utils
+
+RUN rm -rf /var/lib/apt/lists/*
+
+CMD ["bash"]
